@@ -15,11 +15,11 @@ class CreateEmployeesToDepartmentsTable extends Migration
     {
         Schema::create('employees_to_departments', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('employees_id')->unsigned();
-            $table->bigInteger('departments_id')->unsigned();
-            $table->foreign('employees_id')->references('id')->on('employees')
+            $table->bigInteger('employee_id')->unsigned();
+            $table->bigInteger('department_id')->unsigned();
+            $table->foreign('employee_id')->references('id')->on('employees')
                 ->onDelete('cascade');
-            $table->foreign('departments_id')->references('id')->on('departments')
+            $table->foreign('department_id')->references('id')->on('departments')
                 ->onDelete('cascade');
             $table->timestamps();
         });
