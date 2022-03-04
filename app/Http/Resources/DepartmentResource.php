@@ -18,6 +18,8 @@ class DepartmentResource extends JsonResource
             'id' => $this->id,
             'departments_name' => $this->departments_name,
             'employees' => DepartmentEmployeeResource::collection($this->employees),
+            'employees_count' => count($this->employees),
+            'employees_max_wage' => $this->maxWage
         ];
     }
 }

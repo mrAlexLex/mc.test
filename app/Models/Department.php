@@ -26,4 +26,9 @@ class Department extends Model
     {
         return $this->belongsToMany(Employee::class, 'employees_to_departments');
     }
+
+    public function maxWage()
+    {
+        return $this->employees();
+    }
 }
