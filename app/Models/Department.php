@@ -15,6 +15,13 @@ class Department extends Model
     /**
      * @var string[]
      */
+    protected $appends = [
+        'max_wage'
+    ];
+
+    /**
+     * @var string[]
+     */
     protected $fillable = [
         'departments_name',
     ];
@@ -27,8 +34,11 @@ class Department extends Model
         return $this->belongsToMany(Employee::class, 'employees_to_departments');
     }
 
-    public function maxWage()
+    /**
+     * @return mixed
+     */
+    public function getMaxWageAttribute()
     {
-        return $this->employees();
+        return $this->employees()->max('wage');
     }
 }

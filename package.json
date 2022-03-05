@@ -28,6 +28,7 @@
         "bootstrap-vue": "^2.21.2",
         "jquery": "^3.6.0",
         "popper.js": "^1.16.1",
-        "vue-router": "^4.0.13"
+        "vue-router": "^4.0.13",
+        "vuelidate": "^0.7.7"
     }
 }

@@ -20,7 +20,7 @@ class Employee extends Model
         'surname',
         'patronymic',
         'gender',
-        'wage',
+        'wage'
     ];
 
     /**

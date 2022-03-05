@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EmployeeRequest;
 use App\Http\Resources\EmployeeResource;
+use App\Models\Department;
 use App\Models\Employee;
 use Illuminate\Http\Response;
+use function PHPUnit\Framework\exactly;
 use function response;
 
 /**
@@ -28,7 +30,9 @@ class EmployeeController extends Controller
      */
     public function store(EmployeeRequest $request)
     {
+        $departments = Department::whereIn('id', $request->validated()['departments'])->get();
         $employee = Employee::create($request->validated());
+        $employee->departments()->attach($departments);
 
         return new EmployeeResource($employee);
     }
@@ -49,7 +53,10 @@ class EmployeeController extends Controller
      */
     public function update(EmployeeRequest $request, Employee $employee)
     {
+        $departments = Department::whereIn('id', $request->validated()['departments'])->get();
         $employee->update($request->validated());
+        $employee->departments()->detach();
+        $employee->departments()->attach($departments);
 
         return new EmployeeResource($employee);
     }

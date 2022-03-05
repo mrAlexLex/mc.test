@@ -32,6 +32,7 @@ class EmployeeRequest extends FormRequest
             'patronymic' => 'string||min:2|max:50|regex:/^\S*$/u',
             'gender' => 'required|string',
             'wage' => 'required|numeric|between:0,99999.99',
+            'departments' => 'required',
         ];
     }
 
@@ -44,7 +45,8 @@ class EmployeeRequest extends FormRequest
             'name.required' => 'Обязательное поле для заполнения!',
             'surname.required' => 'Обязательное поле для заполнения!',
             'gender.required' => 'Обязательное поле для заполнения!',
-            'wage.required' => 'Обязательное поле для заполнения!'
+            'wage.required' => 'Обязательное поле для заполнения!',
+            'departments.required' => 'Обязательное поле для заполнения!'
         ];
     }
 }

@@ -6,13 +6,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <router-link to="/" class="nav-link">Главная</router-link>
+                    <router-link :to="{name: 'home'}" class="nav-link">Главная</router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link to="employee" class="nav-link">Сотрудники</router-link>
+                    <router-link :to="{name: 'employee'}" class="nav-link">Сотрудники</router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link to="department" class="nav-link">Отделы</router-link>
+                    <router-link :to="{name: 'department'}" class="nav-link">Отделы</router-link>
                 </li>
             </ul>
         </div>
